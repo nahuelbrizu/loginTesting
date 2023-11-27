@@ -28,7 +28,7 @@ function Login({ onSuccess }) {
             };
 
             // Enviar credenciales al servidor para la autenticación
-            const response = await fetch('http://127.0.0.1:3003/users/sign_in', {
+            const response = await fetch('https://ec2-54-167-106-27.compute-1.amazonaws.com:3000/users/sign_in', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ function Login({ onSuccess }) {
             console.log('Token de acceso:', token);
 
             // Envía la solicitud al servidor
-            const response = await fetch('http://127.0.0.1:3003/users/sign_in', {
+            const response = await fetch('https://ec2-54-167-106-27.compute-1.amazonaws.com:3000/users/sign_in', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

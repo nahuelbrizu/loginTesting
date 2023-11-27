@@ -15,7 +15,7 @@ const About = () => {
             try {
                 const jwtToken = localStorage.getItem('jwtToken');
                 if (jwtToken) {
-                    const response = await axios.get('/auth/validate_token', {
+                    const response = await axios.get('https://ec2-54-167-106-27.compute-1.amazonaws.com:3000/auth/validate_token', {
                         headers: {
                             Authorization: `Bearer ${jwtToken}`,
                         },
@@ -34,10 +34,10 @@ const About = () => {
         fetchUserData();
     }, [user, setUser]);
 
-    const userId = user?.id || user?.user?.id || "N/A";
-    const userName = user?.name || user?.user?.name || "N/A";
+    const userId = user?.reloadUserInfo.localId || user?.user?.id || "N/A";
+    const userName = user?.displayName || user?.user?.name || "N/A";
     const userEmail = user?.email || user?.user?.email || "N/A";
-    const userToken = user?.token || "N/A";
+    const userToken = user?.accessToken || "N/A";
 
 
 

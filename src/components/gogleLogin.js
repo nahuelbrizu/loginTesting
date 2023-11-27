@@ -1,21 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import axios from 'axios';
+import {useAuth} from "../AuthContext";
 
 const GoogleLogin = () => {
-    const [user, setUser] = useState('')
+    const { login, setUser, user} = useAuth();
 
 
     const handleGoogleLogin = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:3003/users/auth/google_oauth2/callback');
+            const response = await axios.get('https://ec2-54-167-106-27.compute-1.amazonaws.com:3000/users/auth/google_oauth2/callback');
             console.log('Respuesta de inicio de sesión con Google:', response.data);
             setUser(response.data)
+            login(true);
         } catch (error) {
             console.error('Error al iniciar sesión con Google:', error);
         }
 
     };
-    console.log(user)
+    console.log("Handle GoogleLogin : ",user)
     return (
         <div>
             <h2>Iniciar sesión con Google</h2>
