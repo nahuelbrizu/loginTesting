@@ -15,7 +15,7 @@ function Home() {
                     <button onClick={logout}>Logout</button>
                 </>
             ) : (
-                <button>blabal</button>
+                <button><Login /></button>
             )}
         </div>
     );

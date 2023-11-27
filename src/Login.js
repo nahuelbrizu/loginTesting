@@ -20,7 +20,7 @@ function Login({ onSuccess }) {
         try {
 
             const loginData = {
-                email: 'email',
+                email: email2,
                 name: displayName,
                 avatar: photoURL,
                 uid: uid,
@@ -83,7 +83,7 @@ function Login({ onSuccess }) {
         }
     }
 
-    const sendTokenToApi = async (token) => {
+    /*const sendTokenToApi = async (token) => {
         try {
             // Send the token to your server (adjust the URL accordingly)
             const response = await fetch('http://127.0.0.1:3003/users/sign_in', {
@@ -103,7 +103,7 @@ function Login({ onSuccess }) {
         } catch (error) {
             console.error('Error al enviar el token al servidor de Rails:', error);
         }
-    }
+    }*/
     const sendUserDataToApi = async (user, token) => {
         try {
             // Imprime el token en la consola para verificar su contenido
@@ -146,13 +146,13 @@ function Login({ onSuccess }) {
                 type="email"
                 placeholder="Correo electrónico"
                 value={email}
-                onChange={(e) => email(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
             />
             <input
                 type="password"
                 placeholder="Contraseña"
                 value={password}
-                onChange={(e) => password(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
             />
             <Button onClick={handleLogin}>Iniciar sesión</Button>
         </div>

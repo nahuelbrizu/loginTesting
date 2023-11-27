@@ -42,6 +42,7 @@ function Navbar() {
             Cookies.remove('userToken');
             setLoggedIn(false);
             setUser(null);
+            logout(true);
             onUserChange(null); // Notify the parent component (App) that the user has logged out
         } catch (error) {
             console.error('Error al cerrar sesión:', error);
@@ -53,14 +54,14 @@ function Navbar() {
                 <Link to="/" className="navbar-brand">
                     LoginApp
                 </Link>
-                <button
+                <Button
                     className="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNav"
                 >
                     <span className="navbar-toggler-icon"></span>
-                </button>
+                </Button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
@@ -88,16 +89,16 @@ function Navbar() {
                                     <span className="nav-link">Welcome, {user?.displayName}</span>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-outline-danger" onClick={handleLogout}>
+                                    <Button className="btn btn-outline-danger" onClick={handleLogout}>
                                         Logout
-                                    </button>
+                                    </Button>
                                 </li>
                             </>
                         ) : (
                             <li className="nav-item">
-                                <button className="btn btn-primary" onClick={handleShowLogin}>
+                                <Button className="btn btn-primary" onClick={handleShowLogin}>
                                     Login
-                                </button>
+                                </Button>
                             </li>
                         )}
                     </ul>

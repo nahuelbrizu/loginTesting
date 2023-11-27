@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 // This is a simplified example
-    async function authenticateUserWithToken(token) {
+   /* async function authenticateUserWithToken(token) {
         try {
             // Send a request to your server with the token to authenticate the user
             const response = await fetch('http://127.0.0.1:3003/users/sign_in', {
@@ -31,10 +31,10 @@ export function AuthProvider({ children }) {
         } catch (error) {
             throw error;
         }
-    }
+    }*/
 
 
-    const sendTokenToApi = async (token) => {
+/* const sendTokenToApi = async (token) => {
         try {
             // Send the token to your server (adjust the URL accordingly)
             const response = await fetch('http://127.0.0.1:3003/users/auth/google_oauth2/callback', {
@@ -51,7 +51,7 @@ export function AuthProvider({ children }) {
         } catch (error) {
             console.error('Error al enviar el token al servidor de Rails:', error);
         }
-    };
+    };*/
 
     useEffect(() => {
         const token = Cookies.get('authToken');
